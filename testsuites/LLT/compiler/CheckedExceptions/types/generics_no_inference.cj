@@ -2,7 +2,8 @@
 // considered in type-argument inference (no row unification).
 
 // EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-chexc %n.cj -o %output 2>&1 | compare %f
-// ASSERT: scan error
+// ASSERT: scan error: mismatched types
+// ASSERT: scan found '() throws (Class-AException) -> Nothing'
 
 class AException <: Exception {}
 

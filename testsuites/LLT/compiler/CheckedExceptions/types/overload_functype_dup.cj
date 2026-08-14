@@ -2,7 +2,7 @@
 // lists are the same type for overload purposes — such overloads are duplicates.
 
 // EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-chexc %n.cj -o %output 2>&1 | compare %f
-// ASSERT: scan error
+// ASSERT: scan error: function 'h' has overload conflicts
 
 class AException <: Exception {}
 

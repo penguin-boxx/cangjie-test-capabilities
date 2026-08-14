@@ -2,7 +2,7 @@
 // lists are duplicate declarations.
 
 // EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-chexc %n.cj -o %output 2>&1 | compare %f
-// ASSERT: scan error
+// ASSERT: scan error: function 'f' has overload conflicts
 
 class AException <: Exception {}
 class BException <: Exception {}

@@ -2,7 +2,7 @@
 // original does not provide for.
 
 // EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-chexc %n.cj -o %output 2>&1 | compare %f
-// ASSERT: scan error
+// ASSERT: scan error: exception type 'Class-BException' in 'throws' clause of 'm' is not covered by the overridden or implemented declaration
 
 class AException <: Exception {}
 class BException <: Exception {}
