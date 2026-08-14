@@ -1,9 +1,12 @@
 // Checked exceptions (§3.9 rule 5): a subclass does not see the superclass's
 // captured capabilities — the synthesized field is private; it must declare its
-// own `captures` clause if its methods need them.
+// own `captures` clause if its methods need them. Its constructors do acquire the
+// superclass constructor's requirements at the `super` call, which the explicit
+// `throws` clause below discharges, isolating the method-body error.
 
-// EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-chexc %n.cj -o %output 2>&1 | compare %f
-// ASSERT: scan Cannot find a capability for 'FileException'
+// EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
+// ASSERT: scan Cannot find a capability for 'Class-FileException'
+// ASSERT: scan required by this 'throw' expression
 
 class FileException <: Exception {}
 
@@ -18,7 +21,8 @@ captures FileException {
 }
 
 class Derived <: Base {
-    init() {
+    // the super call requires Base's captures; declaring them here satisfies it
+    init() throws FileException {
         super()
     }
 

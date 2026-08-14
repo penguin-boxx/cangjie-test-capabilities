@@ -2,7 +2,8 @@
 // capabilities at the construction site — no suitable capability, no instance.
 
 // EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-chexc %n.cj -o %output 2>&1 | compare %f
-// ASSERT: scan Cannot find a capability for 'FileException'
+// ASSERT: scan Cannot find a capability for 'Class-FileException'
+// ASSERT: scan required by the call to 'init'
 
 class FileException <: Exception {}
 
