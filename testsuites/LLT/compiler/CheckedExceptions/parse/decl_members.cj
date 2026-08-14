@@ -51,7 +51,8 @@ class C <: I {
         }
     }
 
-    operator func +(that: C): C throws AException {
+    operator func +(that: C): C throws AException, CreationException {
+        // the constructor call demands a CreationException capability (M3 checking)
         C(this.val + that.val)
     }
 }

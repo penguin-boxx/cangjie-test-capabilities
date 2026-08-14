@@ -3,8 +3,8 @@
 // omitted pre-Modal per author ruling).
 
 // EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-chexc %n.cj -o %output 2>&1 | compare %f
-// ASSERT: scan Cannot find a capability for 'AException'
-// ASSERT: scan Cannot find a capability for 'BException'
+// ASSERT: scan Cannot find a capability for 'Class-AException'
+// ASSERT: scan required by the call to 'throwsA'
 
 class AException <: Exception {}
 class BException <: Exception {}

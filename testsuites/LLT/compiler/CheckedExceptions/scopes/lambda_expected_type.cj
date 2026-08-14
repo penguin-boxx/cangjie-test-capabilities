@@ -12,7 +12,9 @@ func withIOException<R>(f: () throws IOException -> R): R {
     try {
         return f()
     } catch (e: IOException) {
-        f()
+        // retry: a catch block is outside the try's capability scope, so calling f here
+        // would demand an IOException capability; the recursive call requires none
+        withIOException<R>(f)
     }
 }
 

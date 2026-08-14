@@ -3,8 +3,8 @@
 
 // EXEC: %compiler %cmp_opt --experimental --enable-chexc=warn %n.cj -o %output 2> warn_out.txt
 // EXEC: %run %output
-// EXEC-PIPE-2: cat warn_out.txt | compare %f
-// ASSERT: scan warning: Cannot find a capability for 'AException'
+// EXEC-PIPE: cat warn_out.txt | compare %f
+// ASSERT: scan warning: Cannot find a capability for 'Class-AException'
 
 class AException <: Exception {}
 

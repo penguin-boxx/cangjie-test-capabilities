@@ -3,7 +3,7 @@
 // unreachable inside it.
 
 // EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-chexc %n.cj -o %output 2>&1 | compare %f
-// ASSERT: scan Cannot find a capability for 'AException'
+// ASSERT: scan Cannot find a capability for 'Class-AException'
 
 class AException <: Exception {}
 
