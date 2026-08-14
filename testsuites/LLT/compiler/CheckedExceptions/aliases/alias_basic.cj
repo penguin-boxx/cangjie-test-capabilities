@@ -8,7 +8,7 @@ class NetworkException <: Exception {}
 class FileNotFoundException <: Exception {}
 class ParseException <: Exception {}
 
-typealias MyModuleExceptions = (NetworkException, FileNotFoundException)
+type MyModuleExceptions = (NetworkException, FileNotFoundException)
 
 func f() throws MyModuleExceptions {
     throw NetworkException()

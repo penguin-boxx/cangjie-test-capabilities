@@ -11,8 +11,8 @@ class AException <: Exception {}
 class NotAnException {}
 class RequestException <: UncheckedException {}
 
-typealias BadElement = (AException, NotAnException)
-typealias UncheckedElement = (AException, RequestException)
+type BadElement = (AException, NotAnException)
+type UncheckedElement = (AException, RequestException)
 
 func f() throws BadElement {
     throw AException()

@@ -8,15 +8,15 @@ class AException <: Exception {}
 class BException <: Exception {}
 class CException <: Exception {}
 
-typealias AB = (AException, BException)
-typealias ABC = (AB, CException)
+type AB = (AException, BException)
+type ABC = (AB, CException)
 
 func wide() throws ABC {
     throw CException()
 }
 
 // a single-element alias is a one-entry list
-typealias JustA = AException
+type JustA = AException
 func narrow() throws JustA {
     throw AException()
 }
@@ -40,9 +40,12 @@ main() {
         narrow()
     } catch (e: AException) {
     }
+    // `captures AB` expands to both AException and BException, so constructing a Worker
+    // demands both capabilities here
     try {
         let w = Worker()
         w.run()
+    } catch (e: AException) {
     } catch (e: BException) {
     }
     return 0

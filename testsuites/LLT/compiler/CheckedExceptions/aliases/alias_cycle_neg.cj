@@ -6,8 +6,8 @@
 
 class AException <: Exception {}
 
-typealias Loop = (AException, Loop2)
-typealias Loop2 = (AException, Loop)
+type Loop = (AException, Loop2)
+type Loop2 = (AException, Loop)
 
 func f() throws Loop {
     throw AException()
