@@ -1,7 +1,7 @@
 // Effects (§8.2): 'perform c' requires a handler capability for the command's type, supplied by a
 // 'handle' clause — the same shape as 'throw'/'catch', with 'performs' declaring the requirement.
 
-// EXEC: %compiler %cmp_opt --experimental --enable-eh --enable-checked-exceptions %n.cj -o %output
+// EXEC: %compiler %cmp_opt %enableEH --enable-checked-exceptions %n.cj -o %output
 // EXEC: %run %output
 
 import stdx.effect.*
@@ -16,8 +16,8 @@ func needsHandler(): Int64 performs GetNumber {
 main() {
     let r = try {
         needsHandler()
-    } handle (_: GetNumber, r: Resumption<Int64>) {
-        resume r with 42
+    } handle (_: GetNumber) {
+        resume with 42
     }
     if (r != 42) {
         return 1

@@ -2,7 +2,7 @@
 // supplies exception capabilities only, and a 'handle' supplies effect capabilities only, because
 // discharge is by subtyping and the 'Command' and 'Exception' roots are disjoint.
 
-// EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-eh --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %cmp_opt %enableEH --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
 // ASSERT: scan Cannot find a capability for 'Class-GetNumber'
 // ASSERT: scan Cannot find a capability for 'Class-MyException'
 
@@ -24,8 +24,8 @@ public func caughtNotHandled(): Int64 {
 public func handledNotCaught(): Int64 {
     return try {
         throw MyException()
-    } handle (_: GetNumber, r: Resumption<Int64>) {
-        resume r with 0
+    } handle (_: GetNumber) {
+        resume with 0
     }
 }
 

@@ -2,7 +2,7 @@
 // exception requirement it is never inferred (§9.1 policy table), so this is an error even though
 // the function is not part of the exported surface.
 
-// EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-eh --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %cmp_opt %enableEH --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
 // ASSERT: scan Cannot find a capability for 'Class-GetNumber'
 
 import stdx.effect.*
