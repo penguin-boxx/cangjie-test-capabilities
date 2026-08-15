@@ -1,17 +1,16 @@
-// Checked exceptions (§5.2.2): the bare form `@AssumeThrows` assumes `Exception`,
-// and a capability list alias may be used in the annotation (§6.1).
+// Checked exceptions (§5.2.2): the bare form `@AssumeThrows` assumes `Exception`.
 
-// DEPENDENCE: legacy_db.pkg.cj
-// EXEC: %compiler legacy_db.pkg.cj %compile_lib_opt -o legacy_db.%lib_extension
-// EXEC: %compiler %cmp_opt --experimental --enable-checked-exceptions %f legacy_db.%lib_extension -o %output
+// DEPENDENCE: legacy_db.cj
+// EXEC: %compiler %cmp_opt %compile_lib_opt legacy_db.cj -o legacy_db.%middle
+// EXEC: %compiler %cmp_opt --experimental --enable-checked-exceptions legacy_db.%middle %n.cj -o %output
 // EXEC: %run %output
 
 @AssumeThrows
-import legacy_db
+import legacy_db.*
 
 main() {
     try {
-        let n = legacy_db.query("select 1") // demands CanThrow<Exception>
+        let n = query("select 1") // demands CanThrow<Exception>
         if (n == 0) {
             return 1
         }
