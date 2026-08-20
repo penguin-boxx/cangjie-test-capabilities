@@ -1,4 +1,4 @@
-// Checked exceptions (§5.2.2): the assumption is scoped to the package its import names. Calls
+// Checked exceptions (assumption imports): the assumption is scoped to the package its import names. Calls
 // into any other package — here the standard library and the current package — are unaffected.
 
 // DEPENDENCE: legacy_db.cj

@@ -1,4 +1,4 @@
-// Checked exceptions (§6.1): a tuple typealias used in a `throws` clause is a
+// Checked exceptions (capability list aliases): a tuple typealias used in a `throws` clause is a
 // capability list — `throws MyExceptions` means `throws A, B`.
 
 // EXEC: %compiler %cmp_opt --experimental --enable-checked-exceptions %n.cj -o %output

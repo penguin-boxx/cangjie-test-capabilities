@@ -1,4 +1,4 @@
-// Checked exceptions (§10): `throws` and `captures` are recognised by spelling only where a
+// Checked exceptions (grammar impact): `throws` and `captures` are recognised by spelling only where a
 // clause may start; everywhere else they stay ordinary identifiers, EVEN WITH THE FEATURE
 // ENABLED. Reserving them would break existing code — `std.unittest.mock` exports a public
 // `throws` function used at hundreds of call sites.

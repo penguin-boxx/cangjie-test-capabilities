@@ -1,4 +1,4 @@
-// Effects (§8.2 with §3.10.2): a 'performs' requirement crosses the package boundary — the
+// Effect handlers (with package metadata): a 'performs' requirement crosses the package boundary — the
 // entries live in the functional type's capability list, which the .cjo carries.
 
 // DEPENDENCE: libeff.cj

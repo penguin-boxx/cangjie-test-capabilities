@@ -1,4 +1,4 @@
-// Checked exceptions (§6.1 / §3.10.2 rule 1): alias expansion is recursive, so a
+// Checked exceptions (capability list aliases / package metadata rule 1): alias expansion is recursive, so a
 // cyclic alias must be rejected rather than expanded forever.
 
 // EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f

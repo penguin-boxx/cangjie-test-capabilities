@@ -1,4 +1,4 @@
-// Effects (§8.2): 'perform c' requires a handler capability for the command's type, supplied by a
+// Effect handlers: 'perform c' requires a handler capability for the command's type, supplied by a
 // 'handle' clause — the same shape as 'throw'/'catch', with 'performs' declaring the requirement.
 
 // EXEC: %compiler %cmp_opt %enableEH --enable-checked-exceptions %n.cj -o %output

@@ -1,4 +1,4 @@
-// Checked exceptions (§1.1, §6.4): the Error hierarchy is fail-fast, not statically tracked —
+// Checked exceptions (the fail-fast/recoverable split, unchecked exceptions): the Error hierarchy is fail-fast, not statically tracked —
 // 'Error <: ToString' is a separate root from 'Exception', and throwing one never requires a
 // capability. Errors cannot be constructed by user code (their constructors are internal to
 // std.core), so the user-visible path is rethrowing a caught one, and the compiler-side proof

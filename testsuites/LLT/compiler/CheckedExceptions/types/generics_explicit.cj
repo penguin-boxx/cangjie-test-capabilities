@@ -1,4 +1,4 @@
-// Checked exceptions (§3.6): clause types may be/contain type parameters; capability
+// Checked exceptions (generics): clause types may be/contain type parameters; capability
 // argument inference follows type-argument inference (explicit args work).
 
 // EXEC: %compiler %cmp_opt --experimental --enable-chexc %n.cj -o %output

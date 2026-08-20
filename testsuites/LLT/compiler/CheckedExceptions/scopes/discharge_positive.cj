@@ -1,4 +1,4 @@
-// Checked exceptions (§3.3): capability scopes — try-catch introduces one capability
+// Checked exceptions (capability argument inference): capability scopes — try-catch introduces one capability
 // per catch-pattern type (E1|E2 introduces two); declared clauses cover bodies;
 // contravariance: a base-type handler discharges subtype throws; catch/finally
 // blocks are OUTSIDE the try's scope; try-with-resources initializers are inside.

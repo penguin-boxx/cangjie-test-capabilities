@@ -1,4 +1,4 @@
-// Checked exceptions (§6.1): alias expansion is recursive (aliases may contain
+// Checked exceptions (capability list aliases): alias expansion is recursive (aliases may contain
 // other aliases) and applies to `captures` clauses as well as `throws`.
 
 // EXEC: %compiler %cmp_opt --experimental --enable-checked-exceptions %n.cj -o %output

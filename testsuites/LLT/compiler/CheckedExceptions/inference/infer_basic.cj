@@ -1,4 +1,4 @@
-// Checked exceptions (§6.3): non-public callables without a clause get their
+// Checked exceptions (capability parameter inference): non-public callables without a clause get their
 // capability lists inferred from their bodies; discharge removes entries;
 // inferred lists propagate to callers through normal checking.
 

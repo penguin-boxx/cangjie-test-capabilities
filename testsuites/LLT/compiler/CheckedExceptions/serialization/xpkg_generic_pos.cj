@@ -1,4 +1,4 @@
-// Checked exceptions (§3.10.2 with §3.7): the instantiated imported requirement is discharged by
+// Checked exceptions (package metadata with overloading): the instantiated imported requirement is discharged by
 // a handler for exactly that instantiation.
 
 // DEPENDENCE: libx.cj

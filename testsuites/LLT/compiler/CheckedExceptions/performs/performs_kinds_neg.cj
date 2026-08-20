@@ -1,4 +1,4 @@
-// Effects (§8.2 with §9.1): the two capability kinds never discharge one another. A 'catch'
+// Effect handlers (with the keyword scheme): the two capability kinds never discharge one another. A 'catch'
 // supplies exception capabilities only, and a 'handle' supplies effect capabilities only, because
 // discharge is by subtyping and the 'Command' and 'Exception' roots are disjoint.
 

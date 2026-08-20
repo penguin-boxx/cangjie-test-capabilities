@@ -1,4 +1,4 @@
-// Checked exceptions (§6.4): checked and unchecked coexist — checked throws still
+// Checked exceptions (unchecked exceptions): checked and unchecked coexist — checked throws still
 // demand capabilities in the same body where unchecked throws demand none; an
 // unchecked base with checked-looking usage stays exempt through subtyping.
 

@@ -1,4 +1,4 @@
-// Effects (§8.2 with §3.7): the instantiated demand names the instantiated command type — a
+// Effect handlers (with overloading): the instantiated demand names the instantiated command type — a
 // handler for a different instantiation does not discharge it.
 
 // EXEC-PIPE-1: %compiler %cmp_opt %enableEH --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f

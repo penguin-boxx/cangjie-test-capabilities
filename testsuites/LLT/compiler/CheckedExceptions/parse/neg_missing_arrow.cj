@@ -1,4 +1,4 @@
-// Checked exceptions (§3.4): a functional type's `throws` clause must be followed
+// Checked exceptions (functional types): a functional type's `throws` clause must be followed
 // by `->`; `(A) throws (E)` without an arrow is a parse error.
 
 // EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-chexc %n.cj -o %output 2>&1 | compare %f

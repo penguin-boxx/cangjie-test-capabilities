@@ -1,4 +1,4 @@
-// Checked exceptions (§3.9 with §3.10.2): the imported captures requirement is discharged at the
+// Checked exceptions (capability capturing with package metadata): the imported captures requirement is discharged at the
 // construction site, and the instance's methods then need no capability of their own.
 
 // DEPENDENCE: libx.cj

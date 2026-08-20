@@ -1,4 +1,4 @@
-// Checked exceptions (§6.3.1): public declarations are never inferred — their
+// Checked exceptions (which declarations are inferred): public declarations are never inferred — their
 // clauses are authoritative (explicit or empty by omission), so an undeclared
 // checked throw in a public function is an error even with inference on.
 

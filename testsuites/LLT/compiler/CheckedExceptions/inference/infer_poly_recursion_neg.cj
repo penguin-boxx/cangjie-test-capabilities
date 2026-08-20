@@ -1,4 +1,4 @@
-// Checked exceptions (§6.3.4): polymorphic recursion over exception-relevant type
+// Checked exceptions (recursion): polymorphic recursion over exception-relevant type
 // parameters makes the candidate universe infinite — inference is rejected with
 // an error naming the growing instantiation; explicit clauses are required.
 

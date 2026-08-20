@@ -1,4 +1,4 @@
-// Checked exceptions (§3.3): a default parameter value is checked against the
+// Checked exceptions (capability argument inference): a default parameter value is checked against the
 // callable's own capability scope; calling a function VALUE demands its type's
 // capabilities; main() throws is covered by the default handler.
 

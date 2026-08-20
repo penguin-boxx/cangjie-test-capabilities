@@ -1,4 +1,4 @@
-// Checked exceptions (§3.8): an override may not require capabilities the
+// Checked exceptions (overriding and redefinition): an override may not require capabilities the
 // original does not provide for.
 
 // EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-chexc %n.cj -o %output 2>&1 | compare %f

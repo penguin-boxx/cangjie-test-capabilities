@@ -1,4 +1,4 @@
-// Checked exceptions (§3.9 / §2.1.3): capability capturing makes an implementation
+// Checked exceptions (capability capturing / interfaces and inheritance): capability capturing makes an implementation
 // with implementation-specific exceptions conform to a clause-free interface —
 // the adapter pattern, without receiver modes (pre-Modal).
 

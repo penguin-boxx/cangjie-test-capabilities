@@ -1,4 +1,4 @@
-// Checked exceptions (§3.9 rule 5): a subclass does not see the superclass's
+// Checked exceptions (capability capturing rule 5): a subclass does not see the superclass's
 // captured capabilities — the synthesized field is private; it must declare its
 // own `captures` clause if its methods need them. Its constructors do acquire the
 // superclass constructor's requirements at the `super` call, which the explicit

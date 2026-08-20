@@ -1,4 +1,4 @@
-// Checked exceptions (§3.2 rule 3): every type in a `throws` clause must be a
+// Checked exceptions (capability parameters in declarations rule 3): every type in a `throws` clause must be a
 // subtype of class `Exception` (type parameters must be bounded by it).
 
 // EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-chexc %n.cj -o %output 2>&1 | compare %f

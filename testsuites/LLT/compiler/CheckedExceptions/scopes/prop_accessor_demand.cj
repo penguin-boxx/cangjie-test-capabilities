@@ -1,4 +1,4 @@
-// Checked exceptions (§3.2/§3.3): the positive twin of prop_accessor_demand_neg — the same
+// Checked exceptions (capability parameters in declarations/capability argument inference): the positive twin of prop_accessor_demand_neg — the same
 // accesses are fine once the capabilities are supplied, either by a try-catch or by the
 // caller's own clause. Guards against over-demanding.
 

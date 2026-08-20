@@ -1,4 +1,4 @@
-// Checked exceptions (§3.4): `throws` clauses in functional types.
+// Checked exceptions (functional types): `throws` clauses in functional types.
 // Forms: parenthesised list, single-type sugar, empty list, right-associative nesting.
 
 // EXEC: %compiler %cmp_opt --experimental --enable-chexc %n.cj -o %output

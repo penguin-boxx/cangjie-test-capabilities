@@ -1,4 +1,4 @@
-// Checked exceptions (§3.9, author ruling): a capturing class may not declare a
+// Checked exceptions (capability capturing, author ruling): a capturing class may not declare a
 // primary constructor (forward-compatible with Modal, where primaries are ~local);
 // it declares explicit init constructors.
 

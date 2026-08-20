@@ -1,4 +1,4 @@
-// Checked exceptions (§3.2/§3.3): a property accessor's `throws` clause is demanded at every
+// Checked exceptions (capability parameters in declarations/capability argument inference): a property accessor's `throws` clause is demanded at every
 // use site — read, write, compound assign and increment — not only inside the accessor body.
 // The accessors are public so inference cannot mask the result.
 

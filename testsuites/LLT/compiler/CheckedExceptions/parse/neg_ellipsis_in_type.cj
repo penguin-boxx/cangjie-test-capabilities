@@ -1,4 +1,4 @@
-// Checked exceptions (§3.4/§6.3.5): the `...` marker never appears in functional
+// Checked exceptions (functional types/interaction with an explicit throws): the `...` marker never appears in functional
 // types — a functional type's capability list is always complete.
 
 // EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-chexc %n.cj -o %output 2>&1 | compare %f

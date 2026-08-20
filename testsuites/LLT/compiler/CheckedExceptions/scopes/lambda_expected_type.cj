@@ -1,4 +1,4 @@
-// Checked exceptions (§3.5): a literal's capability list comes from the expected
+// Checked exceptions (first-class functions): a literal's capability list comes from the expected
 // type only; inside such a literal those capabilities are in scope. A literal with
 // no expected type has no capability parameters (its demands need enclosing scopes).
 

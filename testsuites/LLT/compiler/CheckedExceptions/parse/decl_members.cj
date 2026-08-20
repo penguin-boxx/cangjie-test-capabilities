@@ -1,4 +1,4 @@
-// Checked exceptions (§3.2): `throws` clauses on members — methods, static methods,
+// Checked exceptions (capability parameters in declarations): `throws` clauses on members — methods, static methods,
 // constructors, property accessors, operators, interface methods, extension methods.
 
 // EXEC: %compiler %cmp_opt --experimental --enable-chexc %n.cj -o %output

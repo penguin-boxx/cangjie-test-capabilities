@@ -1,4 +1,4 @@
-// Checked exceptions (§3.3): a throw (or call requiring a capability) with no
+// Checked exceptions (capability argument inference): a throw (or call requiring a capability) with no
 // suitable capability in scope is an error, with the proposal's wording (mode
 // omitted pre-Modal per author ruling).
 

@@ -1,4 +1,4 @@
-// Checked exceptions (§3.10.2): an imported requirement that is not discharged is a missing
+// Checked exceptions (package metadata): an imported requirement that is not discharged is a missing
 // capability, exactly as it would be within the declaring package. Without cjo metadata the
 // import silently arrives capability-free and this compiles, which is the bug being guarded.
 

@@ -1,4 +1,4 @@
-// Effects (§8.2 with §3.7): a generic command in a 'performs' clause is instantiated at the
+// Effect handlers (with overloading): a generic command in a 'performs' clause is instantiated at the
 // call site, and a handler for exactly that instantiation discharges it.
 
 // EXEC: %compiler %cmp_opt %enableEH --enable-checked-exceptions %n.cj -o %output

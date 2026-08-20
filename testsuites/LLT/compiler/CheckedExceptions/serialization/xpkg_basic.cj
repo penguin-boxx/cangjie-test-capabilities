@@ -1,4 +1,4 @@
-// Checked exceptions (§3.10.2): a 'throws' clause on a public declaration must cross the package
+// Checked exceptions (package metadata): a 'throws' clause on a public declaration must cross the package
 // boundary through the .cjo, so a call in another package demands the same capabilities.
 
 // DEPENDENCE: libx.cj

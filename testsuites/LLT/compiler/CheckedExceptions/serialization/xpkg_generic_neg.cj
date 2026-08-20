@@ -1,4 +1,4 @@
-// Checked exceptions (§3.10.2 with §3.7): an imported generic declaration's capability list is
+// Checked exceptions (package metadata with overloading): an imported generic declaration's capability list is
 // instantiated at the call site, so the demand names the instantiated type.
 
 // DEPENDENCE: libx.cj

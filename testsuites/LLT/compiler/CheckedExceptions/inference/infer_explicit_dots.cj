@@ -1,4 +1,4 @@
-// Checked exceptions (§6.3.5): an explicit clause disables inference (authoritative);
+// Checked exceptions (interaction with an explicit throws): an explicit clause disables inference (authoritative);
 // `throws A, ...` re-enables it — declared entries union with inferred ones;
 // `throws ()` pins an empty list.
 

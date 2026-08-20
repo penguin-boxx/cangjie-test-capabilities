@@ -1,4 +1,4 @@
-// Checked exceptions (§5.2.2): an unhandled assumed requirement is a missing capability, exactly
+// Checked exceptions (assumption imports): an unhandled assumed requirement is a missing capability, exactly
 // like a declared one.
 
 // DEPENDENCE: legacy_db.cj

@@ -1,5 +1,5 @@
-// Effects (§8.2): an undeclared, unhandled 'perform' is a missing capability — and unlike an
-// exception requirement it is never inferred (§9.1 policy table), so this is an error even though
+// Effect handlers: an undeclared, unhandled 'perform' is a missing capability — and unlike an
+// exception requirement it is never inferred (the keyword scheme policy table), so this is an error even though
 // the function is not part of the exported surface.
 
 // EXEC-PIPE-1: %compiler %cmp_opt %enableEH --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f

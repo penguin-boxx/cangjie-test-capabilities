@@ -1,4 +1,4 @@
-// Checked exceptions (§3.4 with §3.10.2): a clause on a FUNCTIONAL TYPE is part of the type, so
+// Checked exceptions (functional types with package metadata): a clause on a FUNCTIONAL TYPE is part of the type, so
 // it must survive nested inside an imported signature — the lambda passed here is covered by the
 // parameter type's capability list and may throw without a try of its own.
 
@@ -11,7 +11,7 @@ import libx.*
 
 main() {
     try {
-        // The literal's capability list comes from the expected type (proposal 3.5), which the
+        // The literal's capability list comes from the expected type (first-class functions), which the
         // .cjo must have carried across: the body may throw XException with no local handler.
         withCallback({ => throw XException() })
         return 1

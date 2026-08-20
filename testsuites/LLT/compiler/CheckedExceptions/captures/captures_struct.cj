@@ -1,4 +1,4 @@
-// Checked exceptions (§3.9): `captures` is allowed on structs; copying duplicates
+// Checked exceptions (capability capturing): `captures` is allowed on structs; copying duplicates
 // the capability (freely duplicable evidence).
 
 // EXEC: %compiler %cmp_opt --experimental --enable-chexc %n.cj -o %output

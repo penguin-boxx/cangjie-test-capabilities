@@ -1,4 +1,4 @@
-// Checked exceptions (§3.8): an override's throws list must be pointwise subsumed
+// Checked exceptions (overriding and redefinition): an override's throws list must be pointwise subsumed
 // by the original's — subsets and subtype entries are legal.
 
 // EXEC: %compiler %cmp_opt --experimental --enable-chexc %n.cj -o %output

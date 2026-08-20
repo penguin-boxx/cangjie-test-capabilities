@@ -1,4 +1,4 @@
-// Support package for the cross-package tests (proposal 3.10.2): a CHECKED dependency whose
+// Support package for the cross-package tests (package metadata): a CHECKED dependency whose
 // public surface carries 'throws' clauses. Compiled with --enable-checked-exceptions, so its
 // capability lists must survive into the .cjo and be demanded at call sites in other packages.
 
@@ -38,13 +38,13 @@ public class Connection {
     }
 }
 
-// A public signature carrying a functional type with a clause (proposal 3.4): the clause is part
+// A public signature carrying a functional type with a clause (functional types): the clause is part
 // of the parameter's TYPE, so it must survive in the .cjo nested inside that type.
 public func withCallback(cb: () throws XException -> Int64): Int64 throws XException {
     return cb()
 }
 
-// A capturing class (proposal 3.9): construction demands the captured capabilities, so the
+// A capturing class (capability capturing): construction demands the captured capabilities, so the
 // 'captures' clause must cross the boundary as well.
 public class Session captures XException {
     public init() {

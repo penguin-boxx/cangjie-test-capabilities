@@ -1,8 +1,8 @@
-// Checked exceptions (§6.3.2, discharge by a function literal): a requirement raised
+// Checked exceptions (what is inferred, discharge by a function literal): a requirement raised
 // inside a literal whose EXPECTED TYPE carries the corresponding capability parameter
 // is discharged there and must NOT be inferred for the enclosing declaration. A literal
 // whose expected type carries no capability list discharges nothing, so the requirement
-// propagates out by capture (§2.1.2) and IS inferred.
+// propagates out by capture (higher-order functions) and IS inferred.
 
 // EXEC: %compiler %cmp_opt --experimental --enable-checked-exceptions %n.cj -o %output
 // EXEC: %run %output
@@ -12,7 +12,7 @@ class NegativeException <: Exception {}
 
 // the literal parameter DOES declare a capability list: it handles IOException itself.
 // Note the fallback: calling `f()` again from the catch block would be outside the try's
-// capability scope (§3.3) and would make this helper itself require the capability.
+// capability scope (capability argument inference) and would make this helper itself require the capability.
 func withIOException<R>(f: () throws IOException -> R, fallback: R): R {
     try {
         f()

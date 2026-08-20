@@ -1,4 +1,4 @@
-// Checked exceptions (§3.9, pre-Modal semantics per author ruling): a `captures`
+// Checked exceptions (capability capturing, pre-Modal semantics per author ruling): a `captures`
 // clause on a class makes EVERY constructor demand the captured capabilities at
 // its call site, and puts them in scope in EVERY method/prop body.
 

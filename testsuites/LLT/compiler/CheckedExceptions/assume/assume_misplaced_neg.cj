@@ -1,4 +1,4 @@
-// Checked exceptions (§5.2.2): the annotation only means anything on an import, where the trust
+// Checked exceptions (assumption imports): the annotation only means anything on an import, where the trust
 // relationship lives. Anywhere else it would be silently inert, so it is rejected.
 
 // EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f

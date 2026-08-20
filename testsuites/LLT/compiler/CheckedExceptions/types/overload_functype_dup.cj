@@ -1,4 +1,4 @@
-// Checked exceptions (§3.7): parameter function types differing only in capability
+// Checked exceptions (overloading): parameter function types differing only in capability
 // lists are the same type for overload purposes — such overloads are duplicates.
 
 // EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-chexc %n.cj -o %output 2>&1 | compare %f

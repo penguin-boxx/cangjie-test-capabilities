@@ -1,4 +1,4 @@
-// Checked exceptions (§5.2.2): an assumption import imposes a throws list on every call into an
+// Checked exceptions (assumption imports): an assumption import imposes a throws list on every call into an
 // unchecked dependency — functions, methods and constructors alike. Handled here by a try-catch,
 // so the program compiles and runs.
 

@@ -1,4 +1,4 @@
-// Checked exceptions (§3.9): constructing a capturing class demands the captured
+// Checked exceptions (capability capturing): constructing a capturing class demands the captured
 // capabilities at the construction site — no suitable capability, no instance.
 
 // EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-chexc %n.cj -o %output 2>&1 | compare %f

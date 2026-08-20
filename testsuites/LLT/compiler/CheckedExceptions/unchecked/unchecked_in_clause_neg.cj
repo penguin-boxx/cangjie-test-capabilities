@@ -1,4 +1,4 @@
-// Checked exceptions (§3.2 rule 5): a concrete unchecked exception type in a
+// Checked exceptions (capability parameters in declarations rule 5): a concrete unchecked exception type in a
 // `throws` list is misleading (throwing it never needs a capability) and is
 // rejected with a dedicated diagnostic.
 

@@ -1,4 +1,4 @@
-// Checked exceptions (§3.4): functional-type subtyping — capability lists compare
+// Checked exceptions (functional types): functional-type subtyping — capability lists compare
 // as sets: permutations, adding requirements, and pointwise widening are all legal.
 
 // EXEC: %compiler %cmp_opt --experimental --enable-chexc %n.cj -o %output

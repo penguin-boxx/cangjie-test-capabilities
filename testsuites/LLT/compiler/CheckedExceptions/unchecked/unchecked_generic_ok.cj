@@ -1,4 +1,4 @@
-// Checked exceptions (§3.2 rule 5, exemption): type parameters may appear in
+// Checked exceptions (capability parameters in declarations rule 5, exemption): type parameters may appear in
 // clauses; a capability requirement whose type INSTANTIATES to an unchecked
 // exception type is trivially satisfied at the call site.
 

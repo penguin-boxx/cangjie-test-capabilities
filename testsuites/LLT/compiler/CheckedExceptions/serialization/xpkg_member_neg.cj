@@ -1,4 +1,4 @@
-// Checked exceptions (§3.10.2): clauses on imported METHODS and PROPERTY ACCESSORS cross the
+// Checked exceptions (package metadata): clauses on imported METHODS and PROPERTY ACCESSORS cross the
 // boundary too, not just free functions.
 
 // DEPENDENCE: libx.cj

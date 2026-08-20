@@ -1,5 +1,5 @@
-// Checked exceptions (§5.2.2): a capability list alias may be used in the annotation (§6.1), and
-// an assumed requirement participates in capability parameter inference (§6.3) like a declared one
+// Checked exceptions (assumption imports): a capability list alias may be used in the annotation (capability list aliases), and
+// an assumed requirement participates in capability parameter inference (capability parameter inference) like a declared one
 // — `wrapper` is internal and clause-free, so its list is inferred to hold both assumed types.
 
 // DEPENDENCE: legacy_db.cj

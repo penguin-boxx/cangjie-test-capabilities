@@ -1,4 +1,4 @@
-// Checked exceptions (§3.6): capability parameters of argument functions are NOT
+// Checked exceptions (generics): capability parameters of argument functions are NOT
 // considered in type-argument inference (no row unification).
 
 // EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-chexc %n.cj -o %output 2>&1 | compare %f

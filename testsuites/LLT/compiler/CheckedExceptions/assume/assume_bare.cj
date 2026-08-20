@@ -1,4 +1,4 @@
-// Checked exceptions (§5.2.2): the bare form `@AssumeThrows` assumes `Exception`.
+// Checked exceptions (assumption imports): the bare form `@AssumeThrows` assumes `Exception`.
 
 // DEPENDENCE: legacy_db.cj
 // EXEC: %compiler %cmp_opt %compile_lib_opt legacy_db.cj -o legacy_db.%middle

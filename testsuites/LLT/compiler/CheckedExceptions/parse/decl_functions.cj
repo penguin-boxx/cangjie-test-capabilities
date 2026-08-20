@@ -1,4 +1,4 @@
-// Checked exceptions (§3.2): `throws` clauses on top-level function declarations.
+// Checked exceptions (capability parameters in declarations): `throws` clauses on top-level function declarations.
 // Positive: all forms parse and the program compiles and runs.
 
 // EXEC: %compiler %cmp_opt --experimental --enable-chexc %n.cj -o %output

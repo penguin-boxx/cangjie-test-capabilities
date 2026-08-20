@@ -1,4 +1,4 @@
-// Checked exceptions (§3.9 rule 4 with §3.10.2): constructing an imported capturing class demands
+// Checked exceptions (capability capturing rule 4 with package metadata): constructing an imported capturing class demands
 // its captured capabilities at the construction site, so the 'captures' clause must cross the
 // package boundary too.
 

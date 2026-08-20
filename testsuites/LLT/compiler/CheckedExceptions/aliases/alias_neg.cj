@@ -1,6 +1,6 @@
-// Checked exceptions (§6.1): every element of an alias tuple must be a subtype of
+// Checked exceptions (capability list aliases): every element of an alias tuple must be a subtype of
 // Exception and not of UncheckedException — the same rules as spelled-out entries
-// (§3.2 rules 3 and 5).
+// (capability parameters in declarations rules 3 and 5).
 
 // EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
 // ASSERT: scan error

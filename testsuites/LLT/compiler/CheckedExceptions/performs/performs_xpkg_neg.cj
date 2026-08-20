@@ -1,4 +1,4 @@
-// Effects (§8.2 with §3.10.2): an imported, unhandled effect requirement is a missing
+// Effect handlers (with package metadata): an imported, unhandled effect requirement is a missing
 // capability — and it is not inferred even here, since effect requirements never are.
 
 // DEPENDENCE: libeff.cj

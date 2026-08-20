@@ -1,4 +1,4 @@
-// Checked exceptions (§3.3, scope corner cases):
+// Checked exceptions (capability argument inference, scope corner cases):
 // 1) a catch block is NOT inside its try's capability scope (bare rethrow of a
 //    checked exception needs an enclosing capability);
 // 2) a finally block is outside the scope too;

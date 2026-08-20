@@ -1,4 +1,4 @@
-// Checked exceptions (§3.2 rule 1): a primary constructor may carry a `throws` clause. The
+// Checked exceptions (capability parameters in declarations rule 1): a primary constructor may carry a `throws` clause. The
 // clause must survive desugaring into the synthesized `init`, so construction sites demand it
 // and the constructor's own body may discharge it.
 
@@ -12,7 +12,7 @@ func mayThrowField(): Int64 throws FieldException {
     7
 }
 
-// class primary constructor with a clause (the proposal's §3.2 example shape)
+// class primary constructor with a clause (the proposal's capability parameters in declarations example shape)
 public class A {
     public A(let x: Int64) throws CreationException {
         if (x < 0) {

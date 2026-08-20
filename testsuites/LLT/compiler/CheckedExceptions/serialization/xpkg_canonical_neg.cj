@@ -1,4 +1,4 @@
-// Checked exceptions (§3.10.2 rule 1): the capability list written to the .cjo is in canonical
+// Checked exceptions (package metadata rule 1): the capability list written to the .cjo is in canonical
 // normal form — entries subsumed by another entry are dropped, so an importer of
 // 'throws SubExc, BaseExc' sees 'BaseExc' alone and gets ONE diagnostic, not two. Dropping the
 // subsumed entry loses no obligation: any supply discharging 'BaseExc' discharges 'SubExc' too.

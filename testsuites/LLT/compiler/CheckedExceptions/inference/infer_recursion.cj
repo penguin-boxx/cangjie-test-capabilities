@@ -1,4 +1,4 @@
-// Checked exceptions (§6.3.4): recursion is inferred via the least fixpoint of
+// Checked exceptions (recursion): recursion is inferred via the least fixpoint of
 // the SCC's monotone equations. Covers self-recursion, mutual recursion with
 // PARTIAL discharge inside the cycle (distinguishes fixpoint from naive union),
 // and a mixed cycle with one authoritative explicit member.

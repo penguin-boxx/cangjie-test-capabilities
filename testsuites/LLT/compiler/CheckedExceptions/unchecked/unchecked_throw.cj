@@ -1,4 +1,4 @@
-// Checked exceptions (§6.4): throwing an UncheckedException subtype requires no
+// Checked exceptions (unchecked exceptions): throwing an UncheckedException subtype requires no
 // capability; unchecked exceptions remain catchable like any exception.
 
 // EXEC: %compiler %cmp_opt --experimental --enable-checked-exceptions %n.cj -o %output
