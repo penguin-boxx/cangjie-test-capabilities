@@ -5,7 +5,9 @@ import stdx.effect.Command
 
 class Eff <: Command<Int64> {}
 
-public func assertPerformed<T>(fn: ()->Int64, msg!: String = ""): Int64 where T <: Command<Int64> {
+// Effect requirements are checked wherever handlers are enabled, and a literal takes its capability
+// list from the expected type -- so the callback's type says what it performs.
+public func assertPerformed<T>(fn: () performs T -> Int64, msg!: String = ""): Int64 where T <: Command<Int64> {
     try{
         return fn()
     } handle (e: T){
