@@ -1,41 +1,33 @@
-// Checked exceptions (capability capturing rule 5): a subclass does not see the superclass's
-// captured capabilities — the synthesized field is private; it must declare its
-// own `captures` clause if its methods need them. Its constructors do acquire the
-// superclass constructor's requirements at the `super` call, which the explicit
-// `throws` clause below discharges, isolating the method-body error.
+// Checked exceptions (capability capturing rule 4): every subclass of a capturing class is itself a
+// capturing class, and its `captures` list must cover the superclass's -- each superclass entry
+// covered by an own entry, possibly a more general one. A subclass with no clause, or with one that
+// misses an entry, is an error; the covering case is in captures_subclass.cj.
 
-// EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
-// ASSERT: scan Cannot find a capability for 'Class-FileException'
-// ASSERT: scan required by this 'throw' expression
+// EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-chexc %n.cj -o %output 2>&1 | compare %f
+// ASSERT: scan error: 'NoClause' must capture 'Class-FileException'
+// ASSERT: scan error: 'Narrow' must capture 'Class-FileException'
 
 class FileException <: Exception {}
+class LogException <: Exception {}
 
 open class Base
 captures FileException {
-    init() {
-    }
+    init() {}
 
     public open func write(s: String): Unit {
-        throw FileException() // ok: Base's captured capability
+        throw FileException()
     }
 }
 
-class Derived <: Base {
-    // the super call requires Base's captures; declaring them here satisfies it
-    init() throws FileException {
-        super()
-    }
+class NoClause <: Base {
+    init() { super() }
+}
 
-    public override func write(s: String): Unit {
-        throw FileException() // error: super's capture is invisible here
-    }
+class Narrow <: Base
+captures LogException {
+    init() { super() }
 }
 
 main() {
-    try {
-        let d = Derived()
-        d.write("x")
-    } catch (e: FileException) {
-    }
     return 0
 }
