@@ -1,18 +1,17 @@
-// Checked exceptions (assumption imports): the mirror of 'assume_on_checked_neg.cj'. A dependency
-// compiled at 'warn' has lists that are knowingly incomplete -- violations were reported and the
-// package was built anyway -- so an assumption over it is still the tool for the job and is
-// accepted. Only a dependency verified at 'error' makes the two contradictory.
+// Checked exceptions (assumption imports): an assumption is rejected over any package that records
+// capability lists of its own -- verified at 'error' or trusted at 'warn'. The two would
+// contradict each other: the assumption would override what the dependency states. Only a package
+// compiled with checking off records nothing, and that is what an assumption is for.
+// This is the 'warn' half; 'assume_on_checked_neg.cj' is the 'error' half.
 
 // DEPENDENCE: checked_dep.cj
 // EXEC: %compiler %cmp_opt %compile_lib_opt --experimental --enable-checked-exceptions=warn checked_dep.cj -o checked_dep.%middle
-// EXEC: %compiler %cmp_opt --experimental --enable-checked-exceptions checked_dep.%middle %n.cj -o %output
-// EXEC: %run %output
+// EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-checked-exceptions checked_dep.%middle %n.cj -o %output 2>&1 | compare %f
+// ASSERT: scan error: '@AssumeThrows' names package 'checked_dep', whose capability lists are recorded
 
 @AssumeThrows[DepException]
 import checked_dep.*
 
-// The assumption imposes 'DepException' on every call into the package -- it is pessimistic, not a
-// discharge -- and the 'try' is what handles it.
 main(): Int64 {
     try {
         risky()

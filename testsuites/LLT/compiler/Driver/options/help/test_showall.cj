@@ -142,7 +142,7 @@ Options:
     <value>=semantics           
     <value>=interpreter         
     <value>=apilevel-check      
-    <value>=chexc               
+    <value>=checked-exceptions  
   -Won, --warn-on <value>     Report a specific group of warning
     <value>=all                 
     <value>=unused              
@@ -155,7 +155,7 @@ Options:
     <value>=semantics           
     <value>=interpreter         
     <value>=apilevel-check      
-    <value>=chexc               
+    <value>=checked-exceptions  
   --error-count-limit <value> Emit specified <number> of errors only. Available options: all, <number> (8 by default)
   -V, --verbose               Enable verbose
   -v, --version               Print compiler version information 
