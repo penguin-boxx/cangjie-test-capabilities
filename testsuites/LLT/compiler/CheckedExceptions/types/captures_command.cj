@@ -4,7 +4,7 @@
 
 // EXEC-PIPE-1: %compiler %cmp_opt %enableEH --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
 // ASSERT: scan Cannot find a capability for 'Class-GetNumber'
-// ASSERT: scan Handler<Class-GetNumber>
+// ASSERT: scan CanPerform<Class-GetNumber>
 
 import stdx.effect.*
 

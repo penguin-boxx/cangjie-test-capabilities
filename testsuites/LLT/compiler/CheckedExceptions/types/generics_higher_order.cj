@@ -35,7 +35,7 @@ func handlingBoth<E>(fn: () throws E -> Unit, witness: E): Int64 where E <: Exce
 }
 
 // a member of a generic class: the mapping comes from the receiver
-class Handler<E> where E <: Exception {
+class CanPerform<E> where E <: Exception {
     func run(fn: () throws E -> Unit): Int64 {
         try {
             fn()
@@ -56,7 +56,7 @@ main(): Int64 {
     if (handlingBoth(thrower, AException()) != 1) {
         return 1
     }
-    if (Handler<AException>().run(thrower) != 1) {
+    if (CanPerform<AException>().run(thrower) != 1) {
         return 1
     }
     return 0
