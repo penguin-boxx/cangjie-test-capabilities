@@ -3,12 +3,12 @@
 // in the 'checked-exceptions' group.
 
 // EXEC-PIPE: %compiler %cmp_opt --experimental --enable-chexc %n.cj -o %output 2>&1 | compare %f
-// ASSERT: scan warning: 'unsafeAssumeHandled' assumes 'Class-MyUnchecked', which is unchecked
+// ASSERT: scan warning: 'unsafeCanThrow' assumes 'Class-MyUnchecked', which is unchecked
 
 class MyUnchecked <: UncheckedException {}
 
 func nothingToAssume(): Int64 {
-    unsafeAssumeHandled<MyUnchecked, Int64>({ => 1 })
+    unsafeCanThrow<MyUnchecked, Int64>({ => 1 })
 }
 
 main() {

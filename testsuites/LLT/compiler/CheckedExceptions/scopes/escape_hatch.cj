@@ -1,4 +1,4 @@
-// Checked exceptions (the escape hatch): 'unsafeAssumeHandled<E>(f)' runs 'f' with a fabricated
+// Checked exceptions (the escape hatch): 'unsafeCanThrow<E>(f)' runs 'f' with a fabricated
 // capability for 'E' -- a type-level assumption with no runtime content, for migration and boundary
 // code that knows an exception cannot occur. The callback takes its capability list from the
 // parameter's type, so a requirement inside it is discharged; the call site itself requires nothing.
@@ -18,7 +18,7 @@ func mayThrow(n: Int64): Int64 throws AException {
 
 // no clause of its own: the assumption removes the obligation rather than passing it on
 func assumed(n: Int64): Int64 {
-    unsafeAssumeHandled<AException, Int64>({ => mayThrow(n) })
+    unsafeCanThrow<AException, Int64>({ => mayThrow(n) })
 }
 
 main(): Int64 {
