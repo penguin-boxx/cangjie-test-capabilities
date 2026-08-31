@@ -54,6 +54,10 @@ Options:
   --profile-compile-time      Write time spent of all phases to <package>.time.prof in the output directory
   --profile-compile-memory    Write memory usage of all phases to <package>.mem.prof in the output directory
   --enable-eh                 Enables experimental support for effect handlers (Experimental)
+  --enable-chexc, --enable-checked-exceptions
+                              Enables experimental support for checked exceptions. Candidate severities: (Experimental)
+    <value>=error               report capability violations as errors (default)
+    <value>=warn                report capability violations as warnings
   --dump-ast                  Dump human readable AST when compiling for debug
   --dump-chir                 Dump human readable CHIR when compiling for debug
   --dump-ir                   Dump human readable IR
@@ -138,6 +142,7 @@ Options:
     <value>=semantics           
     <value>=interpreter         
     <value>=apilevel-check      
+    <value>=checked-exceptions  
   -Won, --warn-on <value>     Report a specific group of warning
     <value>=all                 
     <value>=unused              
@@ -150,6 +155,7 @@ Options:
     <value>=semantics           
     <value>=interpreter         
     <value>=apilevel-check      
+    <value>=checked-exceptions  
   --error-count-limit <value> Emit specified <number> of errors only. Available options: all, <number> (8 by default)
   -V, --verbose               Enable verbose
   -v, --version               Print compiler version information 
