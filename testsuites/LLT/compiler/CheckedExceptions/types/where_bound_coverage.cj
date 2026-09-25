@@ -4,8 +4,10 @@
 // a function whose list spells both is usable wherever the covering entry alone is expected, in
 // an annotated binding and in an argument position alike.
 //
-// The identity half — the two spellings interning as one type in an invariant position — needs
-// normalization to run after the bounds are attached, and is recorded as the open half of I36.
+// The identity half — the two spellings interning as one type in an invariant position — holds
+// wherever the open-form type is produced by substitution, and is pinned in
+// types/where_bound_identity.cj. A spelling elaborated directly in the open form is normalized
+// before the bounds are attached and still differs; that residue is recorded in the gap analysis.
 //
 // Regression value beyond the rule: normalizing a list that mentions a not-yet-bounded type
 // parameter used to ask `IsSubtype(E, IOException)` during clause elaboration, before the bound
