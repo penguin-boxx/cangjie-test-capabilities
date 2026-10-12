@@ -1,0 +1,22 @@
+// Rewrite acceptance: §4.4.6.
+// A local! argument originating inside the protected body may accompany a captured capability.
+//
+// EXEC: %compiler %cmp_opt --experimental --enable-checked-exceptions %n.cj -o %output
+// EXEC: %run %output
+
+class AE <: Exception {}
+class BE <: Exception {}
+func risky(): Unit { throw AE() }
+func runLocal(f: (() -> Unit) @local?): Unit throws () { f() }
+func identity(f: (() -> Unit) @local?): (() -> Unit) @local? throws () { f }
+class Holder { init(this @local!) { exclave {} } }
+func touch(h: Holder @local!, f: (() -> Unit) @local?): Unit throws () { f() }
+
+main(): Int64 {
+    try {
+        let h: Holder @local! = Holder()
+        let f = { => risky() }
+        touch(h, f)
+    } catch (e: AE) { return 0 }
+    return 1
+}

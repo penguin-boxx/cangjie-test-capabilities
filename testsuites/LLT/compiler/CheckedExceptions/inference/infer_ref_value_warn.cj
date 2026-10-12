@@ -1,4 +1,4 @@
-// Checked exceptions (inference and function values, migration level): the replay that rejects an
+// Checked exceptions (inference and function values, migration level): the Sema check that rejects an
 // inferred list against a clause-free target reports the same obligation the checking pass does,
 // so it follows the same migration level. At 'warn' the diagnostic is a warning in the 'chexc'
 // group and the package still compiles -- which is what an existing library needs while its
@@ -9,7 +9,7 @@
 // downgrades it.
 
 // EXEC-PIPE: %compiler %cmp_opt --experimental --enable-checked-exceptions=warn %n.cj -o %output 2>&1 | compare %f
-// ASSERT: scan warning: the inferred capability list requires 'Class-LeakExc', which the type '() -> Unit' expected at this argument does not admit
+// ASSERT: scan warning: capability requirements of '() throws (Class-LeakExc) -> Unit' are not admitted by expected type '() -> Unit'
 
 class LeakExc <: Exception {}
 

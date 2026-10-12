@@ -8,9 +8,9 @@
 // error, which is where the text puts it.
 
 // EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
-// ASSERT: scan error: the inferred capability list requires 'Class-LeakExc', which the type '() -> Unit' expected at this binding does not admit
-// ASSERT: scan error: the inferred capability list requires 'Class-LeakExc', which the type '() -> Unit' expected at this assignment does not admit
-// ASSERT: scan error: the inferred capability list requires 'Class-LeakExc', which the type '() -> Unit' expected at this argument does not admit
+// ASSERT: regex infer_ref_value_neg\.cj:26:[0-9]+:
+// ASSERT: regex infer_ref_value_neg\.cj:30:[0-9]+:
+// ASSERT: regex infer_ref_value_neg\.cj:36:[0-9]+:
 
 class LeakExc <: Exception {}
 

@@ -1,0 +1,26 @@
+// Rewrite acceptance: §4.4.6.
+// An alias declared inside a try does not make outer mutable storage internal.
+//
+// EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
+// ASSERT: regex error:.*(capability.*(external|outside)|external.*(storage|capability))
+// ASSERT: regex-not error:.*(unexpected token|unclosed delimiter|expected .*found|unrecognized|undeclared identifier)
+// ASSERT: scan-not Internal Compiler Error
+// ASSERT: regex external_storage_alias_neg\.cj:23:[0-9]+:
+
+class AE <: Exception {}
+class BE <: Exception {}
+func risky(): Unit { throw AE() }
+func runLocal(f: (() -> Unit) @local?): Unit throws () { f() }
+func identity(f: (() -> Unit) @local?): (() -> Unit) @local? throws () { f }
+class Holder { init(this @local!) { exclave {} } }
+func touch(h: Holder @local!, f: (() -> Unit) @local?): Unit throws () { f() }
+
+main(): Int64 {
+    let h: Holder @local! = Holder()
+    try {
+        let alias = h
+        let f = { => risky() }
+        touch(alias, f) // ERROR: external local! argument at a capability-carrying call
+    } catch (e: AE) {}
+    return 0
+}

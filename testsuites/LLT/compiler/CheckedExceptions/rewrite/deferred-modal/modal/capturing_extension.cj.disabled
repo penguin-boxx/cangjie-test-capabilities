@@ -1,0 +1,23 @@
+// Rewrite acceptance: §3.9.3.
+// An extension method uses the receiver capture without requiring a caller capability.
+//
+// EXEC: %compiler %cmp_opt --experimental --enable-checked-exceptions %n.cj -o %output
+// EXEC: %run %output
+
+class AE <: Exception {}
+interface Runner { func run(this @local?): Unit }
+class Adapter <: Runner captures AE {
+    init(this @local!) { exclave {} }
+    public func run(this @local?): Unit { throw AE() }
+}
+
+extend Adapter {
+    func fail(this @local?): Unit throws () { throw AE() }
+}
+main(): Int64 {
+    try {
+        let value: Adapter @local! = Adapter()
+        value.fail()
+    } catch (e: AE) { return 0 }
+    return 1
+}

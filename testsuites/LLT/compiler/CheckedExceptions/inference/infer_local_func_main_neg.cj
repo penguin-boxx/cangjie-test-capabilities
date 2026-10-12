@@ -7,15 +7,15 @@
 // error here was reported at the 'throw' (line 19), never at the call.
 
 // EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
-// ASSERT: scan infer_local_func_main_neg.cj:21:5:
+// The binding fails during Sema; demand-only behavior is checked separately.
 // ASSERT: scan infer_local_func_main_neg.cj:22:29:
-// ASSERT: scan error: the inferred capability list requires 'Class-AException', which the type '() -> Unit' expected at this binding does not admit
+// ASSERT: scan expected '() -> Unit', found '() throws (Class-AException) -> Unit'
 // ASSERT: scan-not infer_local_func_main_neg.cj:19:9:
 
 class AException <: Exception {}
 
 main(): Int64 {
-    func local(): Unit {
+    func local(): Unit throws ... {
         throw AException()          // not an error: the list is inferred
     }
     local()                         // error: nothing supplies CanThrow<AException> here

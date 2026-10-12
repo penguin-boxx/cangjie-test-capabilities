@@ -24,7 +24,7 @@ main(): Int64 {
         withClause.toString().contains("throws")) {
         return 1
     }
-    // (Checked through reflection only: a capturing type is not a runtime cast target.)
+    // Reflective construction itself requires no source-level capture supply.
     let info = ClassTypeInfo.of<Capturing>()
     let instance = info.construct()
     return if (TypeInfo.of(instance) == info) { 0 } else { 2 }

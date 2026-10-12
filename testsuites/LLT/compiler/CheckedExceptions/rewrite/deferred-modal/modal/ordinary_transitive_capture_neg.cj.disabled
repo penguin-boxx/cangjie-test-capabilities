@@ -1,0 +1,18 @@
+// Rewrite acceptance: §3.5, §4.4.5, §5.3.3.
+// Capability capture must affect ordinary mode compatibility before the value is consumed.
+//
+// EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
+// ASSERT: regex error:.*(local\?|capability|mismatched types)
+// ASSERT: regex-not error:.*(unexpected token|unclosed delimiter|expected .*found|unrecognized|undeclared identifier)
+// ASSERT: scan-not Internal Compiler Error
+// ASSERT: regex ordinary_transitive_capture_neg\.cj:16:[0-9]+:
+
+class AE <: Exception {}
+class BE <: Exception {}
+func risky(): Unit { throw AE() }
+func reject(): Unit {
+    let inner = { => risky() }
+    let outer = { => inner() }
+    let unrestricted: () -> Unit = outer // ERROR: ordinary capture of inner propagates its mode
+}
+main(): Int64 { 0 }

@@ -1,0 +1,25 @@
+// Rewrite acceptance: §3.1, §3.3.3, §4.4.4.
+// Using an outer capture inside an inner try neither retags it nor changes dynamic handler dispatch.
+//
+// EXEC: %compiler %cmp_opt --experimental --enable-checked-exceptions %n.cj -o %output
+// EXEC: %run %output
+
+class AE <: Exception {}
+class BE <: Exception {}
+func risky(): Unit { throw AE() }
+func runLocal(f: (() -> Unit) @local?): Unit throws () { f() }
+func identity(f: (() -> Unit) @local?): (() -> Unit) @local? throws () { f }
+
+main(): Int64 {
+    var count = 0
+    try {
+        var outer: (() -> Unit) @local? = { => risky() }
+        try {
+            let copy = identity(outer)
+            outer = copy // allowed: no capability from the inner try is stored
+        } catch (e: BE) { return 1 }
+        try { outer() } catch (e: AE) { count++ }
+        outer()
+    } catch (e: AE) { count++ }
+    return if (count == 2) { 0 } else { 1 }
+}

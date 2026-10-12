@@ -1,28 +1,19 @@
-// Checked exceptions (capability capturing rules 1 and 2): a `captures` clause that is statically
-// empty -- written `()`, or an alias that expands to nothing -- is equivalent to omitting it, so
-// `Empty` below is an ordinary non-capturing class. A capturing type, by contrast, has no implicit
-// default constructor: every constructor requires the captured capabilities at its call site, so
-// there must be one to carry the requirement.
-
+// Checked exceptions: §3.9 under non-Modal §6.5.
+// An implicit default constructor is legal under §6.5, but its construction site must supply captures.
+//
 // EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-chexc %n.cj -o %output 2>&1 | compare %f
-// ASSERT: scan error: class 'NoCtor' has a 'captures' clause and must declare an 'init' constructor
+// ASSERT: scan Cannot find a capability for 'Class-FileException'
+// ASSERT: regex-not error:.*(must declare an 'init'|cannot declare a primary|unexpected token|undeclared identifier)
+// ASSERT: scan-not Internal Compiler Error
+// ASSERT: regex captures_empty_and_ctor_neg\.cj:17:[0-9]+:
 
 class FileException <: Exception {}
-
-// statically empty: not capturing, so the ordinary constructor rules apply
-class Empty
-captures () {
-    Empty(let x: Int64) {} // a primary constructor is fine here
+class Empty captures () { Empty(let x: Int64) {} }
+class NoCtor captures FileException {
+    func write(): Unit throws () { throw FileException() }
 }
-
-class NoCtor
-captures FileException {
-    public func write(s: String): Unit {
-        throw FileException()
-    }
-}
-
-main() {
-    let e = Empty(1)
+main(): Int64 {
+    let empty = Empty(1)
+    let writer = NoCtor() // ERROR: implicit constructor is legal but requires FileException
     return 0
 }

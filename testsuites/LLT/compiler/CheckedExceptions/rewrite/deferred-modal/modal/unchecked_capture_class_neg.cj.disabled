@@ -1,0 +1,17 @@
+// Rewrite acceptance: §3.9, §5.1.2.
+// An unchecked specialization removes a construction obligation, not the capturing class mode.
+//
+// EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
+// ASSERT: regex error:.*(constructor|local|mismatched types)
+// ASSERT: regex-not error:.*(unexpected token|unclosed delimiter|expected .*found|unrecognized|undeclared identifier)
+// ASSERT: scan-not Internal Compiler Error
+// ASSERT: regex unchecked_capture_class_neg\.cj:15:[0-9]+:
+
+class UE <: UncheckedException {}
+class Capturing<E> where E <: Exception captures E {
+    init(this @local!) { exclave {} }
+}
+main(): Int64 {
+    let value: Capturing<UE> = Capturing<UE>() // ERROR: no unrestricted constructor
+    return 0
+}

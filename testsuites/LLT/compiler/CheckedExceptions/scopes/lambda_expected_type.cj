@@ -8,7 +8,7 @@
 class IOException <: Exception {}
 class SomeException <: Exception {}
 
-func withIOException<R>(f: () throws IOException -> R): R {
+func withIOException<R>(f: () throws IOException -> R): R throws () {
     try {
         return f()
     } catch (e: IOException) {

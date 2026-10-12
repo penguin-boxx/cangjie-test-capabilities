@@ -1,0 +1,27 @@
+// Rewrite acceptance: §3.5, §4.4.5, §5.3.3.
+// Both inferred and written demands synthesize local? captures; expected clauses avoid capture.
+//
+// EXEC: %compiler %cmp_opt --experimental --enable-checked-exceptions %n.cj -o %output
+// EXEC: %run %output
+
+class AE <: Exception {}
+class BE <: Exception {}
+func risky(): Unit { throw AE() }
+func runLocal(f: (() -> Unit) @local?): Unit throws () { f() }
+func identity(f: (() -> Unit) @local?): (() -> Unit) @local? throws () { f }
+
+func written(): Unit throws AE { throw AE() }
+func enclosing(): Unit { let f = { => risky() }; runLocal(f) }
+func withClause(f: () throws AE -> Unit): Int64 throws () {
+    try { f(); 0 } catch (e: AE) { 1 }
+}
+main(): Int64 {
+    var count = 0
+    try { let f = { => risky() }; runLocal(f) } catch (e: AE) { count++ }
+    try { let f = { => written() }; runLocal(f) } catch (e: AE) { count++ }
+    try { enclosing() } catch (e: AE) { count++ }
+    let independent: () throws AE -> Unit = { => risky() }
+    count += withClause(independent)
+    count += withClause({ => risky() })
+    return if (count == 5) { 0 } else { 1 }
+}

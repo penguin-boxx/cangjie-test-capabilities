@@ -1,0 +1,25 @@
+// Rewrite acceptance: §3.5, §3.9, §4.4.1.
+// Bound methods preserve their capturing receivers through a nominal upcast.
+//
+// EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
+// ASSERT: regex error:.*capability.*(escap|outside|outlive)
+// ASSERT: regex-not error:.*(unexpected token|unclosed delimiter|expected .*found|unrecognized|undeclared identifier)
+// ASSERT: scan-not Internal Compiler Error
+// ASSERT: regex bound_method_escape_neg\.cj:22:[0-9]+:
+
+class AE <: Exception {}
+interface Runner { func run(this @local?): Unit }
+class Adapter <: Runner captures AE {
+    init(this @local!) { exclave {} }
+    public func run(this @local?): Unit { throw AE() }
+}
+
+main(): Int64 {
+    var saved: (() -> Unit) @local? = { => }
+    try {
+        let value: Adapter @local! = Adapter()
+        let view: Runner @local? = value
+        saved = view.run // ERROR
+    } catch (e: AE) {}
+    return 0
+}

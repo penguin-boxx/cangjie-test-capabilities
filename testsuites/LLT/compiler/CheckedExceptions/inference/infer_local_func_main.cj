@@ -13,7 +13,7 @@ class AException <: Exception {}
 
 main(): Int64 {
     var caught = 0
-    func local(): Unit {
+    func local(): Unit throws ... {
         throw AException()
     }
     try {
@@ -28,7 +28,7 @@ main(): Int64 {
         caught++
     }
     try {
-        func nested(): Unit {       // declared inside a 'try' of 'main'
+        func nested(): Unit throws ... {       // declared inside a 'try' of 'main'
             throw AException()
         }
         nested()

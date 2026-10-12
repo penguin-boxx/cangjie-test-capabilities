@@ -1,0 +1,21 @@
+// Rewrite acceptance: §4.4.1–2.
+// Aliases, call results and tuple projections remain usable inside their supplying try.
+//
+// EXEC: %compiler %cmp_opt --experimental --enable-checked-exceptions %n.cj -o %output
+// EXEC: %run %output
+
+class AE <: Exception {}
+class BE <: Exception {}
+func risky(): Unit { throw AE() }
+func runLocal(f: (() -> Unit) @local?): Unit throws () { f() }
+func identity(f: (() -> Unit) @local?): (() -> Unit) @local? throws () { f }
+
+main(): Int64 {
+    try {
+        let original = { => risky() }
+        let pair = (identity(original), 42)
+        var inside: (() -> Unit) @local? = pair[0]
+        runLocal(inside)
+    } catch (e: AE) { return 0 }
+    return 1
+}

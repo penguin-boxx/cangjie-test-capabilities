@@ -1,0 +1,21 @@
+// Rewrite acceptance: §3.9, §4.4.5.
+// A capturing constructor receives evidence; its clause-free method uses the capture through an interface.
+//
+// EXEC: %compiler %cmp_opt --experimental --enable-checked-exceptions %n.cj -o %output
+// EXEC: %run %output
+
+class AE <: Exception {}
+interface Runner { func run(this @local?): Unit }
+class Adapter <: Runner captures AE {
+    init(this @local!) { exclave {} }
+    public func run(this @local?): Unit { throw AE() }
+}
+
+main(): Int64 {
+    try {
+        let value: Adapter @local! = Adapter()
+        let view: Runner @local? = value
+        view.run()
+    } catch (e: AE) { return 0 }
+    return 1
+}

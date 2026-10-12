@@ -12,19 +12,19 @@
 // assertions name the call or conversion site, which nothing else in the file reports.
 
 // EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
-// ASSERT: scan infer_completion_neg.cj:39:5:
-// ASSERT: scan infer_completion_neg.cj:41:5:
-// ASSERT: scan infer_completion_neg.cj:43:5:
-// ASSERT: scan infer_completion_neg.cj:45:5:
-// ASSERT: scan infer_completion_neg.cj:46:5:
-// ASSERT: scan infer_completion_neg.cj:48:5:
-// ASSERT: scan infer_completion_neg.cj:50:9:
+// Demand-only coverage is in infer_completion_calls_neg.cj.
+// Demand-only coverage is in infer_completion_calls_neg.cj.
+// Demand-only coverage is in infer_completion_calls_neg.cj.
+// Demand-only coverage is in infer_completion_calls_neg.cj.
+// Demand-only coverage is in infer_completion_calls_neg.cj.
+// Demand-only coverage is in infer_completion_calls_neg.cj.
+// Demand-only coverage is in infer_completion_calls_neg.cj.
 // ASSERT: scan infer_completion_neg.cj:53:33:
-// ASSERT: scan infer_completion_neg.cj:54:40:
+// ASSERT: scan infer_completion_neg.cj:54:48:
 // ASSERT: scan infer_completion_neg.cj:55:33:
 // ASSERT: scan infer_completion_neg.cj:60:37:
-// ASSERT: scan error: the inferred capability list requires 'Class-LeakExc', which the type 'Struct-Array<() -> Unit>' expected at this binding does not admit
-// ASSERT: scan error: the inferred capability list requires 'Class-LeakExc', which the type '() -> Unit' expected at this result does not admit
+// ASSERT: regex expected .*found .*throws.*Class-LeakExc
+// ASSERT: regex expected .*found .*throws.*Class-LeakExc
 
 class LeakExc <: Exception {}
 

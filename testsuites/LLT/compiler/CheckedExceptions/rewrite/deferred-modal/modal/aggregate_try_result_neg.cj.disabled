@@ -1,0 +1,20 @@
+// Rewrite acceptance: §3.3.3, §4.4.
+// A value must not carry a protected-body capability across that body boundary.
+//
+// EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
+// ASSERT: regex error:.*capability.*(escap|outside|outlive)
+// ASSERT: regex-not error:.*(unexpected token|unclosed delimiter|expected .*found|unrecognized|undeclared identifier)
+// ASSERT: scan-not Internal Compiler Error
+// ASSERT: regex aggregate_try_result_neg\.cj:17:[0-9]+:
+
+class AE <: Exception {}
+class BE <: Exception {}
+func risky(): Unit { throw AE() }
+func runLocal(f: (() -> Unit) @local?): Unit throws () { f() }
+func identity(f: (() -> Unit) @local?): (() -> Unit) @local? throws () { f }
+main(): Int64 {
+    let saved = try {
+        ({ => risky() }, 42) // ERROR: protected-body result contains the capability
+    } catch (e: AE) { ({ => }, 42) }
+    return 0
+}
