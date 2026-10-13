@@ -1,0 +1,16 @@
+// Deferred §4.4 flow-analysis acceptance; requires complete Modal integration.
+// EXEC: %compiler %cmp_opt --experimental --enable-checked-exceptions error %n.cj -o %output
+// EXEC: %run %output
+
+class AE <: Exception {}
+func risky(): Unit throws AE { throw AE() }
+
+main(): Int64 {
+    let independent = try {
+        var f: (() -> Unit) @local? = { => risky() }
+        f = { => }
+        f
+    } catch (_: AE) { { => } }
+    independent()
+    return 0
+}

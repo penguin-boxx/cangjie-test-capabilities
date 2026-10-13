@@ -1,0 +1,18 @@
+// Deferred §4.4 flow-analysis acceptance; requires complete Modal integration.
+// EXEC-PIPE-1: %compiler %cmp_opt --experimental --enable-checked-exceptions error %n.cj -o %output 2>&1 | compare %f
+// ASSERT: regex error:.*capability.*escap
+// ASSERT: regex-not error:.*(unexpected token|unclosed delimiter|undeclared identifier)
+// ASSERT: scan-not Internal Compiler Error
+
+class AE <: Exception {}
+func risky(): Unit throws AE { throw AE() }
+
+func create(): (() -> Unit) @local? throws () {
+    try {
+        var f: (() -> Unit) @local? = { => }
+        let wrapper = { => f() }
+        f = { => risky() }
+        wrapper // ERROR: captures the cell, not its earlier independent contents
+    } catch (_: AE) { { => } }
+}
+main(): Int64 { 0 }
