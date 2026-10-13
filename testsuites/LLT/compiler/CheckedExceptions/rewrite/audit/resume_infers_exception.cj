@@ -1,7 +1,7 @@
 // Rewrite audit: §5.3.2, §5.4.5.
 // An uncovered resume-throwing site contributes to its enclosing exception inference.
 //
-// EXEC: %compiler %cmp_opt %enableEH --enable-checked-exceptions %n.cj -o %output
+// EXEC: %compiler %cmp_opt %enableEH --enable-checked-effects error --enable-checked-exceptions %n.cj -o %output
 // EXEC: %run %output
 
 import stdx.effect.*

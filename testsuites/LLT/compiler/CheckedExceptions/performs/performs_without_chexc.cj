@@ -1,9 +1,7 @@
-// Effect requirements follow the effect-handler feature, on an axis of its own: wherever that
-// feature is enabled, a 'perform' with no handler is an error at every exception-checking level --
-// there is no migration level for it, since an unhandled 'perform' fails at run time. Exception
-// requirements, in the same compilation, impose nothing while checking is off.
+// Section 6.1: checked effects are explicitly enabled independently of exception checking.
+// Handler enablement alone is covered by rewrite/compat/axes_off_off.cj.
 
-// EXEC-PIPE-1: %compiler %cmp_opt %enableEH %n.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %cmp_opt %enableEH --enable-checked-effects error %n.cj -o %output 2>&1 | compare %f
 // ASSERT: scan Cannot find a capability for 'Class-GetNumber'
 // ASSERT: scan CanPerform<Class-GetNumber>
 
@@ -13,7 +11,7 @@ class GetNumber <: Command<Int64> {}
 class AException <: Exception {}
 
 func undeclared(): Int64 {
-    perform GetNumber() // error: effects are checked whenever handlers are enabled
+    perform GetNumber() // error: checked effects are explicitly enabled
 }
 
 func mayThrow(): Unit throws AException {

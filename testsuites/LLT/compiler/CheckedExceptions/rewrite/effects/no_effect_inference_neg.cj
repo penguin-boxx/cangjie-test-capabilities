@@ -1,7 +1,7 @@
 // Rewrite acceptance: §5.4.1.
 // A private declaration cannot infer its performs clause.
 //
-// EXEC-PIPE-1: %compiler %cmp_opt %enableEH --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %cmp_opt %enableEH --enable-checked-effects error --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
 // ASSERT: regex error:.*Cannot find a capability for 'Class-Get'
 // ASSERT: regex-not error:.*(unexpected token|unclosed delimiter|expected .*found|unrecognized|undeclared identifier)
 // ASSERT: scan-not Internal Compiler Error

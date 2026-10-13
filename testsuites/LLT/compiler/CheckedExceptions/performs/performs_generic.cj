@@ -1,7 +1,7 @@
 // Effect handlers (with overloading): a generic command in a 'performs' clause is instantiated at the
 // call site, and a handler for exactly that instantiation discharges it.
 
-// EXEC: %compiler %cmp_opt %enableEH --enable-checked-exceptions %n.cj -o %output
+// EXEC: %compiler %cmp_opt %enableEH --enable-checked-effects error --enable-checked-exceptions %n.cj -o %output
 // EXEC: %run %output
 
 import stdx.effect.*

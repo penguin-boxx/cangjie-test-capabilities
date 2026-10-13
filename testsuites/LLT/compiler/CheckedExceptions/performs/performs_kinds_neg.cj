@@ -2,7 +2,7 @@
 // supplies exception capabilities only, and a 'handle' supplies effect capabilities only, because
 // discharge is by subtyping and the 'Command' and 'Exception' roots are disjoint.
 
-// EXEC-PIPE-1: %compiler %cmp_opt %enableEH --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %cmp_opt %enableEH --enable-checked-effects error --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
 // ASSERT: scan Cannot find a capability for 'Class-GetNumber'
 // ASSERT: scan Cannot find a capability for 'Class-MyException'
 

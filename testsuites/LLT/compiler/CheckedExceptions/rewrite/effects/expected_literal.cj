@@ -1,7 +1,7 @@
 // Rewrite acceptance: §3.5, §5.4.
 // An expected performs list supplies the literal itself; the higher-order function handles the demand.
 //
-// EXEC: %compiler %cmp_opt %enableEH --enable-checked-exceptions %n.cj -o %output
+// EXEC: %compiler %cmp_opt %enableEH --enable-checked-effects error --enable-checked-exceptions %n.cj -o %output
 // EXEC: %run %output
 
 import stdx.effect.*

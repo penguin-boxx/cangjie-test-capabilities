@@ -3,7 +3,7 @@
 // resolves in the handler body's enclosing capability scopes, a 'handle' body being outside its own
 // try's scope, like a 'catch' body.
 
-// EXEC-PIPE-1: %compiler %cmp_opt %enableEH --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %cmp_opt %enableEH --enable-checked-effects error --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
 // ASSERT: scan Cannot find a capability for 'Class-AException'
 // ASSERT: scan required by this 'resume ... throwing' expression
 

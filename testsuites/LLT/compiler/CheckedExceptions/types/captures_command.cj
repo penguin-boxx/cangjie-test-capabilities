@@ -2,7 +2,7 @@
 // captures the handler capabilities its methods need exactly as it captures exception ones, and its
 // constructor requires them at the construction site.
 
-// EXEC-PIPE-1: %compiler %cmp_opt %enableEH --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %cmp_opt %enableEH --enable-checked-effects error --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
 // ASSERT: scan Cannot find a capability for 'Class-GetNumber'
 // ASSERT: scan CanPerform<Class-GetNumber>
 

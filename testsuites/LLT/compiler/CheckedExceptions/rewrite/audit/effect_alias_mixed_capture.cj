@@ -1,7 +1,7 @@
 // Rewrite audit: §3.9, §5.2, §5.4.
 // Mixed aliases supply both capability kinds to a receiver; method requirements remain empty.
 //
-// EXEC: %compiler %cmp_opt %enableEH --enable-checked-exceptions %n.cj -o %output
+// EXEC: %compiler %cmp_opt %enableEH --enable-checked-effects error --enable-checked-exceptions %n.cj -o %output
 // EXEC: %run %output
 
 import stdx.effect.*

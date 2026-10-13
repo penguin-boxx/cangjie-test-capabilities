@@ -3,7 +3,7 @@
 // DECLARATIONS the 'where', 'performs' and 'throws' blocks order freely, which
 // 'performs_order_free.cj' pins; this test keeps the functional-type half.
 
-// EXEC-PIPE-1: %compiler %cmp_opt %enableEH --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %cmp_opt %enableEH --enable-checked-effects error --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
 // ASSERT: scan must precede
 
 import stdx.effect.*

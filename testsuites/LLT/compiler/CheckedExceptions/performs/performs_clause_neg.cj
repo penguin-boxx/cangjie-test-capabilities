@@ -1,7 +1,7 @@
 // Effect handlers: a 'performs' entry must be a 'Command' subtype, mirroring the rule that a
 // 'throws' entry must be an 'Exception' subtype.
 
-// EXEC-PIPE-1: %compiler %cmp_opt %enableEH --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %cmp_opt %enableEH --enable-checked-effects error --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
 // ASSERT: scan is not a subtype of 'Command'
 
 import stdx.effect.*

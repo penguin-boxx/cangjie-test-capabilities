@@ -1,7 +1,7 @@
 // Effect handlers (with overloading): the instantiated demand names the instantiated command type — a
 // handler for a different instantiation does not discharge it.
 
-// EXEC-PIPE-1: %compiler %cmp_opt %enableEH --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %cmp_opt %enableEH --enable-checked-effects error --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
 // ASSERT: scan Cannot find a capability for 'Class-GenCmd<Int64>'
 
 import stdx.effect.*

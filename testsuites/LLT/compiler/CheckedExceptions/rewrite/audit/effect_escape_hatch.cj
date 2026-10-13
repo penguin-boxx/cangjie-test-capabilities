@@ -1,7 +1,7 @@
 // Rewrite audit: §5.4.2.
 // The effect escape hatch fabricates only a static requirement; runtime dispatch remains dynamic.
 //
-// EXEC: %compiler %cmp_opt %enableEH --enable-checked-exceptions %n.cj -o %output
+// EXEC: %compiler %cmp_opt %enableEH --enable-checked-effects error --enable-checked-exceptions %n.cj -o %output
 // EXEC: %run %output
 
 import stdx.effect.*

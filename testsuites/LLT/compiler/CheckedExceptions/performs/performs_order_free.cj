@@ -3,7 +3,7 @@
 // fixed order would buy nothing. Every permutation below is legal and means the same thing.
 // Functional types are the opposite case ('performs_order_neg.cj').
 
-// EXEC: %compiler %cmp_opt %enableEH --enable-checked-exceptions %n.cj -o %output
+// EXEC: %compiler %cmp_opt %enableEH --enable-checked-effects error --enable-checked-exceptions %n.cj -o %output
 // EXEC: %run %set_stdx_path %run_opt %output
 
 import stdx.effect.*

@@ -1,7 +1,7 @@
 // Effect handlers: 'perform c' requires a handler capability for the command's type, supplied by a
 // 'handle' clause — the same shape as 'throw'/'catch', with 'performs' declaring the requirement.
 
-// EXEC: %compiler %cmp_opt %enableEH --enable-checked-exceptions %n.cj -o %output
+// EXEC: %compiler %cmp_opt %enableEH --enable-checked-effects error --enable-checked-exceptions %n.cj -o %output
 // EXEC: %run %output
 
 import stdx.effect.*

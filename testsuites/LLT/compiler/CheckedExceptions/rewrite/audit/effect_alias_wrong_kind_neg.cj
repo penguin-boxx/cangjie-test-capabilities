@@ -1,7 +1,7 @@
 // Rewrite audit: §3.2, §5.2, §5.4.
 // Aliases are validated at each clause use; a mixed alias cannot be a throws or performs list.
 //
-// EXEC-PIPE-1: %compiler %cmp_opt %enableEH --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
+// EXEC-PIPE-1: %compiler %cmp_opt %enableEH --enable-checked-effects error --enable-checked-exceptions %n.cj -o %output 2>&1 | compare %f
 // ASSERT: regex error:.*(Exception|Command|exception|command)
 // ASSERT: regex-not error:.*(unexpected token|unclosed delimiter|expected .*found|unrecognized|undeclared identifier)
 // ASSERT: scan-not Internal Compiler Error

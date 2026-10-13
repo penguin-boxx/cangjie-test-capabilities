@@ -1,6 +1,6 @@
 # Coverage audit: proposal sections 3 and 5
 
-Audited on 2026-10-12 against the workspace proposal and [architecture](../../../../../../notes/architecture.md). The scope is sections 3 and 5 under §6.5: ordinary constructors and receivers remain valid for capturing types; Modal modes and all escape checks remain deferred. The user's no-recursive-inference policy supersedes the proposal's current §5.3.4. This audit covers the existing `CheckedExceptions` tests as well as the rewrite fixtures, not just the new directory.
+Audited on 2026-10-12 against the workspace proposal and [architecture](../../../../../../notes/architecture.md). This original audit covers sections 3 and 5 under §6.5; the later [section 6 audit](compat/README.md) extends it. In the original scope, ordinary constructors and receivers remain valid for capturing types; Modal modes and all escape checks remain deferred. The user's no-recursive-inference policy supersedes the proposal's current §5.3.4. This audit covers the existing `CheckedExceptions` tests as well as the rewrite fixtures, not just the new directory.
 
 The previous suite covered the main rules but missed several interactions required by the architecture. Added 48 executable audit cases, including two written-clause controls, plus six dependency/support files. The pre-migration audit counted 91 active test drivers and 21 deferred Modal specifications; the migration adds the regressions listed in README.md. A test appearing in this matrix establishes a specific behavior; neither a filename nor a passing rejection proves an entire subsection correct.
 
@@ -48,7 +48,7 @@ The declaration-completion implementation also needs direct checks for `Active`/
 
 `implicit_protocol_inference` intentionally uses warning mode because the installed standard `Iterator.next` and `Resource.close` interfaces have empty clauses. Their implementations' nonempty inferred requirements violate those interface contracts independently of the protocol-demand behavior being tested. The fixture asserts capability-specific warnings at the unhandled caller sites and executes handled paths. It cannot substitute for error-level protocol acceptance against future compatible standard-library contracts. The existing protocol fixtures have the same limitation.
 
-Modal modes, capture provenance diagnostics, origin propagation, mode-dependent overloads, and escape validation remain outside the active gate. The 21 deferred specimens are retained and do not count as tests of the reusable resolver API. Section 6 checking axes and assumption imports are not added to the requested scope; their existing regressions remain in the broad suite.
+Modal modes, capture provenance diagnostics, origin propagation, mode-dependent overloads, and escape validation remain outside the active gate. The 21 deferred specimens are retained and do not count as tests of the reusable resolver API. The subsequent section 6 extension is mapped in [compat/README.md](compat/README.md), including its new failing acceptance baseline. The historical sections 3/5 results below do not establish section 6 conformance.
 
 ## Execution evidence
 

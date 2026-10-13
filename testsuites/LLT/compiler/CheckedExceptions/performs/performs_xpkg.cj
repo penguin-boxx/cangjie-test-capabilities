@@ -2,8 +2,8 @@
 // entries live in the functional type's capability list, which the .cjo carries.
 
 // DEPENDENCE: libeff.cj
-// EXEC: %compiler %cmp_opt %enableEH %compile_lib_opt --enable-checked-exceptions libeff.cj -o libeff.%middle
-// EXEC: %compiler %cmp_opt %enableEH --enable-checked-exceptions libeff.%middle %n.cj -o %output
+// EXEC: %compiler %cmp_opt %enableEH --enable-checked-effects error %compile_lib_opt --enable-checked-exceptions libeff.cj -o libeff.%middle
+// EXEC: %compiler %cmp_opt %enableEH --enable-checked-effects error --enable-checked-exceptions libeff.%middle %n.cj -o %output
 // EXEC: %run %output
 
 import stdx.effect.*

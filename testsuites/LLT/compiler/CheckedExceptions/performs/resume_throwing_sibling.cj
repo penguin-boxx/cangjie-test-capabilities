@@ -3,7 +3,7 @@
 // it. This is the text's own positive example; before the rule it was rejected, since the handler
 // body was checked against the enclosing scopes alone.
 
-// EXEC: %compiler %cmp_opt %enableEH --enable-checked-exceptions %n.cj -o %output
+// EXEC: %compiler %cmp_opt %enableEH --enable-checked-effects error --enable-checked-exceptions %n.cj -o %output
 // EXEC: %run %set_stdx_path %run_opt %output
 
 import stdx.effect.*

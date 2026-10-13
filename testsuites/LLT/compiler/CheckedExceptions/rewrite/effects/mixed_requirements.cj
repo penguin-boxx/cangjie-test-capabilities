@@ -1,7 +1,7 @@
 // Rewrite acceptance: §3.4, §5.4.
 // Exception inference preserves written effect requirements through returned function values.
 //
-// EXEC: %compiler %cmp_opt %enableEH --enable-checked-exceptions %n.cj -o %output
+// EXEC: %compiler %cmp_opt %enableEH --enable-checked-effects error --enable-checked-exceptions %n.cj -o %output
 // EXEC: %run %output
 
 import stdx.effect.*
